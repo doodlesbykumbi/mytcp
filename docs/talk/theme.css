@@ -1,0 +1,870 @@
+/* mytcp talk — ink + moss, not purple-glow defaults */
+
+:root {
+  --bg: #0c1218;
+  --ink: #e8efe9;
+  --muted: #8fa099;
+  --accent: #3dba8b;
+  --accent-dim: #2a7a5c;
+  --warn: #d4a574;
+  --panel: rgba(20, 32, 28, 0.85);
+  --line: rgba(61, 186, 139, 0.28);
+  --empty: rgba(255, 255, 255, 0.06);
+  --filled: rgba(61, 186, 139, 0.14);
+}
+
+html.reveal-full-page,
+.reveal-viewport {
+  background: var(--bg);
+}
+
+.reveal {
+  font-family: "Source Sans 3", "Segoe UI", sans-serif;
+  font-size: 36px;
+  color: var(--ink);
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3 {
+  font-family: Fraunces, Georgia, serif;
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.reveal h1 {
+  font-size: 2.4em;
+  margin: 0.15em 0 0.35em;
+}
+
+.reveal h2 {
+  font-size: 1.55em;
+  margin-bottom: 0.6em;
+}
+
+.reveal h3 {
+  font-size: 0.85em;
+  margin: 0 0 0.4em;
+}
+
+.reveal .brand {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.55em;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0;
+}
+
+.reveal .subtitle {
+  font-size: 0.8em;
+  color: var(--muted);
+  max-width: 24em;
+  margin: 0 auto 1em;
+  line-height: 1.35;
+}
+
+.reveal .meta {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.42em;
+  color: var(--muted);
+}
+
+.reveal .tagline {
+  font-family: "Fraunces", Georgia, serif;
+  font-style: italic;
+  font-size: 0.6em;
+  color: var(--accent);
+  max-width: 30em;
+  margin: 0.4em auto 0;
+  line-height: 1.4;
+}
+
+.reveal .section-label {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.4em;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 0.5em;
+}
+
+.reveal .lede {
+  font-family: Fraunces, Georgia, serif;
+  font-size: 1.05em;
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--ink);
+}
+
+.reveal .soft {
+  color: var(--muted);
+  font-size: 0.82em;
+}
+
+.reveal .note-line {
+  margin-top: 1em;
+  font-size: 0.8em;
+  color: var(--warn);
+}
+
+.reveal .punch {
+  margin-top: 0.9em;
+  font-family: Fraunces, Georgia, serif;
+  font-size: 0.85em;
+  color: var(--accent);
+}
+
+.reveal .caption {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.5em;
+  color: var(--muted);
+  margin-top: 0.75em;
+}
+
+.reveal ul,
+.reveal ol {
+  display: block;
+  margin: 0 auto;
+  text-align: left;
+  width: fit-content;
+  max-width: 90%;
+}
+
+.reveal li {
+  margin: 0.35em 0;
+  line-height: 1.3;
+}
+
+.reveal code {
+  font-family: "IBM Plex Mono", monospace;
+  background: rgba(61, 186, 139, 0.12);
+  padding: 0.08em 0.28em;
+  border-radius: 0.2em;
+  color: var(--accent);
+}
+
+.reveal :not(pre) > code + code {
+  margin-left: 0.35em;
+}
+
+.reveal .code-path {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.45em;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+  margin: 0 0 0.5em;
+}
+
+.reveal pre {
+  box-sizing: border-box;
+  box-shadow: none;
+  background: #12181c;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.8em 1em;
+  width: 100%;
+  margin: 0 0 0.6em;
+  font-size: 0.6em;
+  line-height: 1.38;
+  text-align: left;
+}
+
+.reveal pre code .hljs-comment {
+  color: #9fb8a8;
+  font-style: normal;
+}
+
+.reveal pre code {
+  max-height: 460px;
+  text-align: left;
+}
+
+.reveal pre code {
+  background: transparent;
+  color: #e8efe9;
+  padding: 0;
+  max-height: none;
+  tab-size: 4;
+  white-space: pre !important;
+}
+
+.reveal .hljs {
+  background: transparent;
+  white-space: pre !important;
+  tab-size: 4;
+}
+
+/* highlight.js line-numbers table must keep indent */
+.reveal .hljs-ln-code,
+.reveal td.hljs-ln-code,
+.reveal .hljs-ln-code .hljs-ln {
+  white-space: pre !important;
+  tab-size: 4;
+}
+
+/* stepped code (data-line-numbers="1-3|4-6"): the comments carry the story,
+   so no numbers; lines outside the current step dim */
+.reveal .hljs-ln-numbers {
+  display: none;
+}
+
+.reveal .hljs.has-highlights tr:not(.highlight-line) {
+  opacity: 0.3;
+}
+
+/* each step is a copy of the code stacked over the first; it must sit inside
+   the padding and hide the copy underneath */
+.reveal pre.code-wrapper {
+  position: relative;
+}
+
+.reveal pre.code-wrapper code.hljs.fragment {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: inherit;
+  border-radius: inherit;
+  background: #12181c;
+}
+
+.reveal .hljs.has-highlights tr {
+  transition: opacity 0.3s ease;
+}
+
+.reveal .hljs-ln-numbers {
+  color: #5a6a62;
+  padding-right: 0.8em !important;
+  white-space: nowrap !important;
+}
+
+.reveal table.hljs-ln {
+  border-collapse: collapse;
+  width: auto;
+}
+
+.reveal table.hljs-ln td {
+  border: none;
+  padding: 0;
+}
+
+.reveal pre.big-code {
+  font-size: 0.85em;
+  text-align: center;
+  background: transparent;
+  border: none;
+}
+
+.reveal pre.big-code code {
+  color: var(--accent);
+  background: rgba(61, 186, 139, 0.1);
+  padding: 0.4em 0.7em;
+  border-radius: 0.3em;
+}
+
+.reveal pre.diagram-code {
+  font-size: 0.64em;
+}
+
+.reveal pre.diagram-code.strace {
+  font-size: 0.52em;
+  line-height: 1.35;
+}
+
+.reveal blockquote {
+  background: var(--panel);
+  border-left: 4px solid var(--accent);
+  box-shadow: none;
+  width: 90%;
+  margin: 0.5em auto;
+  padding: 0.7em 1em;
+  font-size: 0.95em;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+.reveal .black-box {
+  margin: 1.2em auto;
+  max-width: 16em;
+  padding: 1.2em 1.5em;
+  background: linear-gradient(135deg, #1a2228, #0a0e12);
+  border: 1px dashed var(--muted);
+  border-radius: 0.4em;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.7em;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+}
+
+.reveal .two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2em;
+  text-align: left;
+  font-size: 0.92em;
+}
+
+.reveal .two-col h3.ok { color: var(--accent); }
+.reveal .two-col h3.no { color: var(--warn); }
+
+.reveal .goals {
+  font-size: 0.92em;
+}
+
+.reveal table.compact {
+  font-size: 0.75em;
+  margin: 0.5em auto;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.reveal table.compact td,
+.reveal table.compact th {
+  border-bottom: 1px solid var(--line);
+  padding: 0.45em 0.6em;
+  text-align: left;
+}
+
+.reveal table.compact th {
+  color: var(--accent);
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 500;
+  font-size: 0.9em;
+}
+
+.reveal table.mono-ish td:first-child {
+  font-family: "IBM Plex Mono", monospace;
+  color: var(--accent);
+}
+
+.reveal .lab-diagram {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.2em;
+  font-size: 0.8em;
+}
+
+.reveal .lab-diagram .box {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  padding: 0.45em 1.2em;
+  border-radius: 0.3em;
+  min-width: 12em;
+  text-align: center;
+}
+
+.reveal .lab-diagram .box.accent {
+  border-color: var(--accent);
+  color: var(--accent);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.95em;
+}
+
+.reveal .lab-diagram .arrow {
+  color: var(--muted);
+  font-size: 0.9em;
+}
+
+.reveal .lab-diagram .bidirectional {
+  color: var(--accent);
+  font-size: 0.75em;
+  margin: 0.2em 0;
+}
+
+/* —— annotated hexdumps —— */
+.reveal pre.hexdump {
+  font-size: 0.47em;
+  line-height: 1.3;
+  padding: 0.6em 1em;
+  margin-bottom: 0.5em;
+}
+
+.reveal pre.hexdump code {
+  color: #5d6d66;
+}
+
+/* one hue per layer, the same on every slide; within a layer, fields
+   alternate between banded (1) and plain (2) so boundaries stay visible */
+.reveal .eth1  { --c: #9dd4ff; --t: rgba(124, 196, 255, 0.24); }
+.reveal .eth2  { --c: #7cc4ff; }
+.reveal .arp1  { --c: #f6e87e; --t: rgba(241, 224, 90, 0.2); }
+.reveal .arp2  { --c: #e6d44e; }
+.reveal .ip1   { --c: #ffc98f; --t: rgba(255, 184, 107, 0.24); }
+.reveal .ip2   { --c: #f0a656; }
+.reveal .icmp1 { --c: #86ece3; --t: rgba(94, 224, 214, 0.2); }
+.reveal .icmp2 { --c: #4fd3c8; }
+.reveal .tcp1  { --c: #dcb6f5; --t: rgba(199, 146, 234, 0.26); }
+.reveal .tcp2  { --c: #bb86e2; }
+.reveal .http1, .reveal .app1 { --c: #9ceba6; --t: rgba(127, 220, 138, 0.2); }
+.reveal .http2, .reveal .app2 { --c: #6fd07b; }
+.reveal .tls1  { --c: #ff9cad; --t: rgba(255, 122, 144, 0.24); }
+.reveal .tls2  { --c: #f56a83; }
+.reveal .f0    { --c: #5d6d66; }
+
+.reveal pre.hexdump code span[class] {
+  color: var(--c);
+  background: var(--t, transparent);
+  border-radius: 3px;
+}
+
+/* stepped layers: always visible; a wrap layer is grey until its step, a peel
+   layer turns grey on its step */
+.reveal .slides section pre.hexdump span.fragment:is(.wrap, .peel) {
+  opacity: 1;
+  visibility: inherit;
+  transition: color 0.5s ease, background-color 0.5s ease;
+}
+
+.reveal pre.hexdump code span.fragment.wrap:not(.visible),
+.reveal pre.hexdump code span.fragment.peel.visible {
+  color: #5d6d66;
+  background: transparent;
+}
+
+/* their table rows stay in place, dimmed until the layer arrives */
+.reveal .slides section tr.fragment.dim-in {
+  opacity: 0.3;
+  visibility: inherit;
+  transition: opacity 0.5s ease;
+}
+
+.reveal .slides section tr.fragment.dim-in.visible {
+  opacity: 1;
+}
+
+/* plain fields get a hollow chip, banded ones a filled chip */
+.reveal .chip:is(.eth2, .arp2, .ip2, .icmp2, .tcp2, .http2, .app2, .tls2) {
+  background: transparent;
+  box-shadow: inset 0 0 0 2px var(--c);
+}
+
+.reveal a.jump {
+  color: inherit;
+  text-decoration: underline dotted var(--accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
+}
+
+.reveal a.jump:hover {
+  color: var(--accent);
+}
+
+.reveal pre.hexdump.tight {
+  font-size: 0.42em;
+  line-height: 1.25;
+  margin-bottom: 0.3em;
+}
+
+/* preamble google frames: long hex + field table on one slide */
+.reveal .slides section.hex-dense h2 {
+  font-size: 1.15em;
+  margin-bottom: 0.35em;
+  padding-bottom: 0.15em;
+}
+
+.reveal .slides section.hex-dense .code-path {
+  font-size: 0.4em;
+  margin: 0 0 0.25em;
+}
+
+.reveal .slides section.hex-dense pre.hexdump.tight {
+  font-size: 0.34em;
+  line-height: 1.2;
+  padding: 0.35em 0.7em;
+  margin-bottom: 0.15em;
+}
+
+.reveal .slides section.hex-dense table.compact.hexlegend {
+  font-size: 0.34em;
+  margin: 0.15em 0;
+}
+
+.reveal .slides section.hex-dense table.compact.hexlegend td,
+.reveal .slides section.hex-dense table.compact.hexlegend th {
+  padding: 0.1em 0.45em;
+}
+
+.reveal .slides section.hex-dense .hexnote {
+  font-size: 0.42em;
+  margin-top: 0.15em;
+  max-width: 88%;
+}
+
+.reveal .chip {
+  display: inline-block;
+  width: 0.9em;
+  height: 0.9em;
+  border-radius: 3px;
+  margin-right: 0.2em;
+  vertical-align: -0.1em;
+  background: var(--c, currentColor);
+}
+
+.reveal .slides section table.compact.hexlegend {
+  font-size: 0.46em;
+  margin: 0.3em 0;
+}
+
+.reveal .slides section table.compact.hexlegend td,
+.reveal .slides section table.compact.hexlegend th {
+  padding: 0.22em 0.6em;
+}
+
+.reveal .slides section table.compact.hexlegend td:first-child {
+  width: 1%;
+  white-space: nowrap;
+}
+
+/* byte-field tables: the same column positions on every slide, so stepping
+   from one dump to the next doesn't shift the columns */
+.reveal .slides section table.hexlegend:is(.fields, .fields2) {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.reveal .slides section table.hexlegend:is(.fields, .fields2) :is(th, td) {
+  box-sizing: border-box;
+}
+
+.reveal .slides section table.hexlegend:is(.fields, .fields2) th:nth-child(1) { width: 3%; }
+.reveal .slides section table.hexlegend:is(.fields, .fields2) th:nth-child(2) { width: 8%; }
+.reveal .slides section table.hexlegend.fields th:nth-child(3) { width: 30%; }
+.reveal .slides section table.hexlegend.fields2 th:nth-child(3) { width: 22%; }
+
+.reveal .slides section table.hexlegend:is(.fields, .fields2) td:nth-child(2) {
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.reveal .hexlabel {
+  margin: 0.3em 0 0.2em;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.42em;
+  color: var(--muted);
+}
+
+.reveal .hexlabel strong {
+  color: var(--ink);
+}
+
+.reveal .hexkey {
+  margin: 0.2em 0 0;
+  font-size: 0.46em;
+  color: var(--ink);
+}
+
+.reveal .hexkey .chip {
+  margin-left: 0.8em;
+}
+
+.reveal .hexkey .chip:first-child {
+  margin-left: 0;
+}
+
+.reveal .hexnote {
+  font-size: 0.6em;
+  margin-top: 0.4em;
+}
+
+/* —— rabbit-hole pointer strip —— */
+.reveal .rabbit {
+  margin-top: 0.9em;
+  padding: 0.5em 0.8em;
+  border: 1px dashed var(--warn);
+  border-radius: 6px;
+  font-size: 0.6em;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+.reveal .rabbit span {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.85em;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--warn);
+  margin-right: 0.7em;
+}
+
+/* —— origin story —— */
+.reveal .story {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.4em;
+  font-size: 0.78em;
+  line-height: 1.4;
+}
+
+.reveal .story-beat {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--accent);
+  border-radius: 8px;
+  padding: 0.8em 1em;
+}
+
+.reveal .story-beat p {
+  margin: 0 0 0.5em;
+}
+
+.reveal .story-where {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.7em;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* —— progressive layer board —— */
+.reveal .layer-board {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3em;
+  max-width: 32em;
+  margin: 0;
+  font-size: 0.72em;
+}
+
+.reveal .layer {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1em;
+  padding: 0.55em 0.85em;
+  border-radius: 0.35em;
+  border: 1px solid var(--line);
+  background: var(--empty);
+  transition: background 0.4s ease, border-color 0.4s ease;
+}
+
+.reveal .layer .lbl {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.85em;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  text-align: left;
+}
+
+.reveal .layer .lbl em {
+  font-style: normal;
+  opacity: 0.7;
+  font-size: 0.85em;
+}
+
+.reveal .layer .val {
+  font-family: Fraunces, Georgia, serif;
+  font-size: 1.05em;
+  color: var(--muted);
+  text-align: right;
+}
+
+/* two protocols side by side on the same layer below */
+.reveal .layer-row {
+  display: flex;
+  gap: 0.3em;
+}
+
+.reveal .layer-row > .layer[data-id="ctl"] {
+  flex: 0 0 34%;
+}
+
+.reveal .layer-row > .layer[data-id="trn"] {
+  flex: 1;
+}
+
+.reveal .layer.filled {
+  background: var(--filled);
+  border-color: var(--accent-dim);
+}
+
+.reveal .layer.filled .lbl {
+  color: var(--accent);
+}
+
+.reveal .layer.filled .val {
+  color: var(--ink);
+}
+
+.reveal .layer.optional:not(.filled) {
+  border-style: dashed;
+  opacity: 0.75;
+}
+
+.reveal .stages {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 1.1em;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+}
+
+/* —— layout: content slides anchored top-left, dividers centered —— */
+.reveal .slides section {
+  box-sizing: border-box;
+  height: 100%;
+  padding: 56px 72px 40px;
+  text-align: left;
+}
+
+.reveal .slides section.divider {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.reveal .slides section.divider .subtitle {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.reveal .slides section:not(.divider) h2 {
+  font-size: 1.35em;
+  margin: 0 0 0.7em;
+  padding-bottom: 0.25em;
+  border-bottom: 1px solid var(--line);
+}
+
+.reveal .slides section:not(.divider) ul,
+.reveal .slides section:not(.divider) ol,
+.reveal .slides section:not(.divider) blockquote,
+.reveal .slides section:not(.divider) .black-box,
+.reveal .slides section:not(.divider) table.compact {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* speaker notes hint */
+.reveal .slide-number {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 14px;
+  color: var(--muted);
+  background: transparent;
+}
+
+.reveal .mermaid {
+  display: flex;
+  justify-content: center;
+  background: transparent;
+}
+
+.reveal .mermaid svg {
+  max-width: 100%;
+  height: auto;
+  /* mermaid draws the lifelines far past the diagram and clips them itself */
+  overflow: hidden;
+}
+
+.reveal .mermaid.spread svg {
+  width: 840px;
+}
+
+.reveal .mermaid.journey svg {
+  width: 1180px;
+}
+
+.reveal .mermaid.tcp-life svg {
+  max-height: 480px;
+  width: auto;
+}
+
+.reveal .mermaid.wire-life svg {
+  max-height: 480px;
+  width: auto;
+}
+
+.reveal .mermaid.tls-life svg {
+  max-height: 470px;
+  width: auto;
+}
+
+/* stepped diagrams: solid message lines draw from sender to receiver,
+   and the arrowhead lands once the line gets there */
+.reveal .slides section .mermaid .fragment {
+  transition: opacity 0.35s ease;
+}
+
+.reveal .slides section .mermaid line.fragment.draw {
+  opacity: 1;
+  visibility: inherit;
+  /* mermaid's own id-scoped rule sets none on message lines */
+  stroke-dasharray: 1 !important;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 0.45s ease-out;
+}
+
+.reveal .slides section .mermaid line.fragment.draw.visible {
+  stroke-dashoffset: 0;
+}
+
+.reveal .slides section .mermaid polygon.head.fragment.visible {
+  transition-delay: 0.35s;
+}
+
+.reveal .step-controls {
+  display: flex;
+  justify-content: center;
+  gap: 0.35em;
+  margin: 0.2em 0 0.4em;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.4em;
+}
+
+.reveal .step-controls button {
+  font: inherit;
+  min-width: 2.2em;
+  padding: 0.25em 0.6em;
+  color: var(--muted);
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+}
+
+.reveal .step-controls button:hover {
+  color: var(--ink);
+  border-color: var(--accent);
+}
+
+.reveal .step-controls button:first-child {
+  color: var(--accent);
+  border-color: var(--accent);
+  margin-right: 0.2em;
+}
+
+.reveal .step-controls button.done {
+  color: var(--ink);
+  border-color: var(--accent);
+}
+
+.reveal .step-controls button.now {
+  color: #0c1218;
+  background: var(--accent);
+}
+
+/* three dumps on one slide (the TCP handshake) */
+.reveal pre.hexdump.stack3 {
+  padding: 0.35em 1em;
+  margin-bottom: 0.1em;
+}
+
+.reveal pre.hexdump.stack3 + .hexlabel {
+  margin-top: 0.15em;
+}
+
+/* code slides that carry a struct plus its methods */
+.reveal .slides section.code-tight pre {
+  font-size: 0.52em;
+  margin-bottom: 0.4em;
+}
+
+/* the row a comparison table is building up to */
+.reveal table tr.em-row td {
+  color: var(--accent);
+  font-weight: 600;
+  border-top: 2px solid var(--accent);
+}

@@ -1,0 +1,11 @@
+{
+  "name": "mytcp-talk",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "shoot": "node shoot.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.55.0"
+  }
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>mytcp capture</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;650&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>mytcp capture</h1>
+      <p>Mini Wireshark for TAP frames — load a <code>.jsonl</code> capture</p>
+      <div id="meta"></div>
+    </header>
+    <main>
+      <section id="drop">
+        <div class="toolbar">
+          <label>
+            Open capture
+            <input id="file" type="file" accept=".jsonl,application/jsonl,text/plain" />
+          </label>
+        </div>
+        <div id="list">
+          <p class="hint">
+            Run the stack with <code>-pcap captures/latest</code>, then open
+            <code>captures/latest.jsonl</code> here (or drop the file).
+            Companion <code>.pcap</code> opens in Wireshark.
+          </p>
+        </div>
+      </section>
+      <section id="detail">
+        <h2>Layers</h2>
+        <div id="layers">
+          <p class="hint">Select a packet to peel the onion.</p>
+        </div>
+      </section>
+      <section id="hexwrap">
+        <h2>Hex · click a layer or hover a byte</h2>
+        <div id="hex"></div>
+      </section>
+    </main>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

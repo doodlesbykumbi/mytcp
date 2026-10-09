@@ -1,0 +1,156 @@
+/* Clickable source paths on slides */
+.reveal .code-path.openable {
+  cursor: pointer;
+  text-decoration: underline dotted;
+  text-underline-offset: 0.25em;
+}
+
+.reveal .code-path.openable::after {
+  content: "  ↗ open";
+  color: var(--muted);
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.reveal .code-path.openable:hover::after {
+  opacity: 1;
+}
+
+/* The viewer overlay */
+#ide {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  background: #0f151a;
+  color: #e8efe9;
+  font-family: "Source Sans 3", sans-serif;
+}
+
+#ide[hidden] {
+  display: none;
+}
+
+.ide-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  background: #0b1014;
+  border-bottom: 1px solid #1f2b26;
+  font-size: 15px;
+}
+
+.ide-dots i {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  margin-right: 6px;
+  border-radius: 50%;
+  background: #2a3631;
+}
+
+.ide-path {
+  font-family: "IBM Plex Mono", monospace;
+  color: #3dba8b;
+}
+
+.ide-spacer {
+  flex: 1;
+}
+
+.ide-btn {
+  padding: 4px 10px;
+  border: 1px solid #2a3631;
+  border-radius: 6px;
+  background: #121a1f;
+  color: #e8efe9;
+  font: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.ide-btn:hover {
+  border-color: #3dba8b;
+}
+
+.ide-back kbd {
+  margin-left: 4px;
+  padding: 0 4px;
+  border: 1px solid #3a4841;
+  border-radius: 3px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 12px;
+  color: #8fa099;
+}
+
+.ide-body {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+}
+
+.ide-tree {
+  width: 250px;
+  flex-shrink: 0;
+  overflow-y: auto;
+  padding: 10px 0 20px;
+  background: #0c1216;
+  border-right: 1px solid #1f2b26;
+  font-size: 15px;
+}
+
+.ide-tree-title {
+  margin: 0 0 6px;
+  padding: 0 14px;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #8fa099;
+}
+
+.ide-dir {
+  margin: 8px 0 2px;
+  padding: 0 14px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 13px;
+  color: #8fa099;
+}
+
+.ide-file {
+  display: block;
+  padding: 2px 14px;
+  color: #c9d4ce;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.ide-file.nested {
+  padding-left: 28px;
+}
+
+.ide-file:hover {
+  background: #152019;
+}
+
+.ide-file.active {
+  background: #1a2e25;
+  color: #ffffff;
+  box-shadow: inset 2px 0 0 #3dba8b;
+}
+
+.ide-editor {
+  flex: 1;
+  min-width: 0;
+}
+
+.ide-hl {
+  background: rgba(61, 186, 139, 0.12);
+}
+
+.ide-hl-gutter {
+  background: #3dba8b;
+  width: 3px !important;
+  margin-left: 3px;
+}
